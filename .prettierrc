@@ -6,5 +6,13 @@
   "trailingComma": "all",
   "quoteProps": "consistent",
   "useTabs": false,
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": ["tsconfig.json"],
+      "options": {
+        "trailingComma": "none"
+      }
+    }
+  ]
 }
