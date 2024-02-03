@@ -3,14 +3,7 @@
     "target": "es5",
     "baseUrl": "./src",
     "paths": {
-      "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"],
-      "@utils/*": ["utils/*"],
-      "@hooks/*": ["hooks/*"],
-      "@components/*": ["components/*"],
-      "@constants/*": ["constants/*"],
-      "@types/*": ["types/*"],
-      "@src/*": ["./*"]
+      "@/*": ["./*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -26,6 +19,6 @@
     "jsx": "preserve",
     "downlevelIteration": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "craco.config.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "craco.config.ts", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }

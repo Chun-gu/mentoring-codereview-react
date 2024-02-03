@@ -5,5 +5,14 @@
   "singleQuote": true,
   "trailingComma": "all",
   "quoteProps": "consistent",
-  "useTabs": false
+  "useTabs": false,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": ["tsconfig.json"],
+      "options": {
+        "trailingComma": "none"
+      }
+    }
+  ]
 }

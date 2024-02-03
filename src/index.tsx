@@ -1,15 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import Router from './Router';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
-  <React.StrictMode>
-    <Router />
-  </React.StrictMode>,
-);
+import { Provider } from '@/components/provider';
+
+import reportWebVitals from './reportWebVitals';
+import Router from './Router';
+
+import './index.css';
+
+async function enableMocking() {
+  if (process.env.NODE_ENV !== 'development') return;
+
+  (await import('@/server')).worker.start();
+}
+
+enableMocking().then(() => {
+  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <React.StrictMode>
+      <Provider>
+        <Router />
+      </Provider>
+    </React.StrictMode>,
+  );
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
