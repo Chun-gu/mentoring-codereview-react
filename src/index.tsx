@@ -6,12 +6,19 @@ import Router from './Router';
 
 import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
-  <React.StrictMode>
-    <Router />
-  </React.StrictMode>,
-);
+async function enableMocking() {
+  if (process.env.NODE_ENV !== 'development') return;
+
+  (await import('@/server')).worker.start();
+}
+
+enableMocking().then(() => {
+  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <React.StrictMode>
+      <Router />
+    </React.StrictMode>,
+  );
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
