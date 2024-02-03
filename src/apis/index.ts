@@ -1,5 +1,5 @@
-import { dummyExhibitionList } from '@assets/dummy/exhibitionList';
-import { sleep } from '@utils/sleep';
+import { dummyExhibitionList } from '@/assets/dummy/exhibitionList';
+import { sleep } from '@/utils/sleep';
 
 // 전시회 리스트 불러오기 API
 export const getApiExhibitionList = async () => {

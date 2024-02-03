@@ -1,3 +1,40 @@
 {
-  "extends": ["react-app", "react-app/jest"]
+  "extends": ["react-app", "react-app/jest"],
+  "plugins": ["import"],
+  "rules": {
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "allowSeparatedGroups": true
+      }
+    ],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", ["parent", "sibling", "index"], "type"],
+        "pathGroups": [
+          {
+            "pattern": "react{*/**}",
+            "group": "builtin",
+            "position": "after"
+          },
+          {
+            "pattern": "@/**",
+            "position": "after",
+            "group": "external"
+          }
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
 }
