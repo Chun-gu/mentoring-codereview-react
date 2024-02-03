@@ -26,6 +26,6 @@
     "jsx": "preserve",
     "downlevelIteration": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "craco.config.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "craco.config.ts", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }
