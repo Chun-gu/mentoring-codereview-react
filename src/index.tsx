@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import { Provider } from '@/components/provider';
+
 import reportWebVitals from './reportWebVitals';
 import Router from './Router';
 
@@ -15,7 +17,9 @@ async function enableMocking() {
 enableMocking().then(() => {
   ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-      <Router />
+      <Provider>
+        <Router />
+      </Provider>
     </React.StrictMode>,
   );
 });
