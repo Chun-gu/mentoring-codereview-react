@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from '@/components/provider';
 
 import reportWebVitals from './reportWebVitals';
-import Router from './Router';
+import Router from './router';
 
 import './index.css';
 

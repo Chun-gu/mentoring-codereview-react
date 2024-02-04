@@ -45,6 +45,10 @@ module.exports = {
       DEFAULT: '8px',
       full: defaultTheme.borderRadius.full,
     },
+    extend: {
+      width: { 'screen-mobile': '390px' },
+      height: { 'screen-mobile': '844px' },
+    },
   },
   plugins: [],
 };
