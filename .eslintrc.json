@@ -4,7 +4,9 @@
   "rules": {
     "padding-line-between-statements": [
       "error",
-      { "prev": "*", "blankLine": "always", "next": "return" }
+      { "prev": "*", "blankLine": "always", "next": "return" },
+      { "prev": "import", "blankLine": "always", "next": "*" },
+      { "prev": "import", "blankLine": "any", "next": "import" }
     ],
     "sort-imports": [
       "error",
@@ -16,10 +18,6 @@
       }
     ],
     "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
-    "import/newline-after-import": [
-      "error",
-      { "count": 1, "exactCount": true, "considerComments": true }
-    ],
     "import/order": [
       "error",
       {
