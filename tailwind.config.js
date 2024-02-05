@@ -20,6 +20,7 @@ module.exports = {
       bold: '700',
     },
     lineHeight: {
+      none: '1',
       xs: '1.2',
       sm: '1.3',
       md: '1.4',
@@ -48,6 +49,9 @@ module.exports = {
     extend: {
       width: { 'screen-mobile': '390px' },
       height: { 'screen-mobile': '844px' },
+      boxShadow: {
+        '1/2': '0px 0px 0px 0.5px inset',
+      },
     },
   },
   plugins: [],
