@@ -1,7 +1,11 @@
 {
   "extends": ["react-app", "react-app/jest"],
-  "plugins": ["import"],
+  "plugins": ["import", "@stylistic"],
   "rules": {
+    "padding-line-between-statements": [
+      "error",
+      { "prev": "*", "blankLine": "always", "next": "return" }
+    ],
     "sort-imports": [
       "error",
       {
@@ -12,6 +16,10 @@
       }
     ],
     "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+    "import/newline-after-import": [
+      "error",
+      { "count": 1, "exactCount": true, "considerComments": true }
+    ],
     "import/order": [
       "error",
       {

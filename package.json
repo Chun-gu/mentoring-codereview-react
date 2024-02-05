@@ -20,6 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^1.5.4",
     "@tanstack/eslint-plugin-query": "^5.18.1",
     "@tanstack/react-query-devtools": "^5.18.1",
     "autoprefixer": "^10.4.17",
