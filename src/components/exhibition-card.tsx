@@ -1,3 +1,4 @@
+import { addWish } from '@/apis/wish';
 import StarIconFilled from '@/assets/icon-star-filled.svg';
 import StarIconOutlined from '@/assets/icon-star-outlined.svg';
 import type { Exhibition } from '@/types/exhibition-type';
@@ -9,13 +10,17 @@ type ExhibitionCardProps = {
 // TODO: refactor to composition component
 export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
   const {
-    id,
+    id: exhibitionId,
     title,
     imageUrl,
     place,
     price,
     date: { started, ended },
   } = exhibition;
+
+  async function handleClickWish() {
+    addWish(exhibitionId);
+  }
 
   return (
     <div className="flex gap-[10px]">
@@ -40,7 +45,10 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
           </div>
         </dl>
 
-        <button className="absolute right-0 top-0 text-sm font-semibold text-orange">
+        <button
+          onClick={handleClickWish}
+          className="absolute right-0 top-0 text-sm font-semibold text-orange"
+        >
           <img src={StarIconOutlined} alt="찜하기" />
         </button>
         <button className="leading-none absolute bottom-0 right-0 h-4 w-10 rounded-sm bg-gray-1a text-xs font-regular text-white">
