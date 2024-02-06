@@ -10,3 +10,5 @@ export type Exhibition = {
     ended: string;
   };
 };
+
+export type Wish = Exhibition['id'];

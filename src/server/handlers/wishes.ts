@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
-import type { Exhibition } from '@/types/exhibition-type';
+import type { Wish } from '@/types/exhibition-type';
 
 type AddWishParams = {};
 type AddWishRequestBody = { exhibitionId: number };
@@ -10,13 +10,14 @@ type DeleteWishParams = {};
 type DeleteWishRequestBody = { exhibitionId: number };
 type DeleteWishResponseBody = { deletedExhibitionId: number };
 
+// TODO: change route to /user/me/wishes
 export const handlers = [
   http.post<AddWishParams, AddWishRequestBody, AddWishResponseBody, '/wishes'>(
     '/wishes',
     async ({ request }) => {
       const { exhibitionId } = await request.json();
 
-      const wishes = JSON.parse(localStorage.getItem('wishes') || '[]') as Array<Exhibition>;
+      const wishes = JSON.parse(localStorage.getItem('wishes') || '[]') as Array<Wish>;
       const newWishes = Array.from(new Set([...wishes, exhibitionId]));
 
       localStorage.setItem('wishes', JSON.stringify(newWishes));
@@ -29,8 +30,8 @@ export const handlers = [
     async ({ request }) => {
       const { exhibitionId } = await request.json();
 
-      const wishes = JSON.parse(localStorage.getItem('wishes') || '[]') as Array<Exhibition>;
-      const newWishes = wishes.filter(({ id }) => id !== exhibitionId);
+      const wishes = JSON.parse(localStorage.getItem('wishes') || '[]') as Array<Wish>;
+      const newWishes = wishes.filter((wishId) => wishId !== exhibitionId);
 
       localStorage.setItem('wishes', JSON.stringify(newWishes));
 
