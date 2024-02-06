@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import StarIconFilled from '@/assets/icon-star-filled.svg';
 import StarIconOutlined from '@/assets/icon-star-outlined.svg';
 import { useAddWishMutation, useDeleteWishMutation } from '@/hooks/useExhibition';
@@ -59,9 +61,12 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
             <img src={StarIconOutlined} alt="찜 하기" />
           )}
         </button>
-        <button className="leading-none absolute bottom-0 right-0 h-4 w-10 rounded-sm bg-gray-1a text-xs font-regular text-white">
+        <Link
+          to={`/ticketing/${exhibitionId}`}
+          className="leading-none absolute bottom-0 right-0 flex h-4 w-10 items-center justify-center rounded-sm bg-gray-1a text-xs font-regular text-white"
+        >
           예매하기
-        </button>
+        </Link>
       </div>
     </div>
   );
