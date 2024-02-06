@@ -1,6 +1,6 @@
-import { addWish } from '@/apis/wish';
 import StarIconFilled from '@/assets/icon-star-filled.svg';
 import StarIconOutlined from '@/assets/icon-star-outlined.svg';
+import { useAddWishMutation, useDeleteWishMutation } from '@/hooks/useExhibition';
 import type { Exhibition } from '@/types/exhibition-type';
 
 type ExhibitionCardProps = {
@@ -15,11 +15,15 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
     imageUrl,
     place,
     price,
+    isWished,
     date: { started, ended },
   } = exhibition;
 
+  const { addWish } = useAddWishMutation();
+  const { deleteWish } = useDeleteWishMutation();
+
   async function handleClickWish() {
-    addWish(exhibitionId);
+    isWished ? deleteWish(exhibitionId) : addWish(exhibitionId);
   }
 
   return (
@@ -49,7 +53,11 @@ export default function ExhibitionCard({ exhibition }: ExhibitionCardProps) {
           onClick={handleClickWish}
           className="absolute right-0 top-0 text-sm font-semibold text-orange"
         >
-          <img src={StarIconOutlined} alt="찜하기" />
+          {isWished ? (
+            <img src={StarIconFilled} alt="찜 취소하기" />
+          ) : (
+            <img src={StarIconOutlined} alt="찜 하기" />
+          )}
         </button>
         <button className="leading-none absolute bottom-0 right-0 h-4 w-10 rounded-sm bg-gray-1a text-xs font-regular text-white">
           예매하기
