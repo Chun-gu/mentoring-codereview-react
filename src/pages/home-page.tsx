@@ -4,7 +4,7 @@ import StarIconFilled from '@/assets/icon-star-filled.svg';
 import TicketIcon from '@/assets/icon-ticket-filled.svg';
 import ExhibitionList from '@/components/exhibition-list';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <header>
