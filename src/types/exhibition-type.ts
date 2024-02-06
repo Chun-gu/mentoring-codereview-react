@@ -4,6 +4,7 @@ export type Exhibition = {
   imageUrl: string;
   place: string;
   price: number;
+  isWished: boolean;
   date: {
     started: string;
     ended: string;
