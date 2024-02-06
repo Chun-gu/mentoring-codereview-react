@@ -32,7 +32,7 @@ export default function HomePage() {
             </li>
             <li className="flex-grow p-3">
               <NavLink
-                to="/bookmark"
+                to="/wishlist"
                 className={({ isActive }) =>
                   (isActive ? 'text-gray-1a' : 'text-gray-aa') +
                   ' flex h-full w-full flex-col items-center justify-center gap-1 text-sm font-regular leading-xs'
