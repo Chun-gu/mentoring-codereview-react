@@ -1,7 +1,13 @@
 {
   "extends": ["react-app", "react-app/jest"],
-  "plugins": ["import"],
+  "plugins": ["import", "@stylistic"],
   "rules": {
+    "padding-line-between-statements": [
+      "error",
+      { "prev": "*", "blankLine": "always", "next": "return" },
+      { "prev": "import", "blankLine": "always", "next": "*" },
+      { "prev": "import", "blankLine": "any", "next": "import" }
+    ],
     "sort-imports": [
       "error",
       {
