@@ -11,7 +11,7 @@ export default function HomePage() {
         <h1 className="sr-only">전시회 목록</h1>
       </header>
 
-      <main>
+      <main className="h-full pb-20">
         <ExhibitionList />
       </main>
 

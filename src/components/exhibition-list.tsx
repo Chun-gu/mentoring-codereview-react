@@ -6,7 +6,7 @@ export default function ExhibitionList() {
 
   // TODO: handle when length === 0
   return (
-    <ul className="flex flex-col gap-2 p-2">
+    <ul className="flex h-full flex-col gap-2 overflow-y-auto p-2">
       {exhibitions?.map((exhibition) => (
         <li key={exhibition.id} className="contents">
           <ExhibitionCard exhibition={exhibition} />
