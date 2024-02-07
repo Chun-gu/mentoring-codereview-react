@@ -1,7 +1,7 @@
 import { useGetWishesQuery } from '@/hooks/useExhibition';
 
-import ExhibitionCard from './exhibition-card';
 import NoWishes from './NoWishes';
+import WishCard from './wish-card';
 
 export default function Wishlist() {
   const wishes = useGetWishesQuery();
@@ -12,7 +12,7 @@ export default function Wishlist() {
     <ul className="flex flex-col gap-2 p-2">
       {wishes?.map((wish) => (
         <li key={wish.id} className="contents">
-          <ExhibitionCard exhibition={wish} />
+          <WishCard exhibition={wish} />
         </li>
       ))}
     </ul>
