@@ -63,7 +63,7 @@ export default function WishCard({ exhibition }: ExhibitionCardProps) {
         </button>
         <Link
           to={`/ticketing/${exhibitionId}`}
-          className="leading-none absolute bottom-0 left-0 flex h-4 w-10 items-center justify-center rounded-sm bg-gray-1a text-xs font-regular text-white"
+          className="absolute bottom-0 left-0 flex h-4 w-10 items-center justify-center rounded-sm bg-gray-1a text-xs font-regular leading-none text-white"
         >
           예매하기
         </Link>

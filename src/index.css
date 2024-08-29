@@ -6,4 +6,8 @@
   html {
     font-family: 'Apple SD Gothic Neo', 'Pretendard Variable', system-ui, sans-serif;
   }
+
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
 }

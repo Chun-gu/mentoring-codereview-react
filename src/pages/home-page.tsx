@@ -15,7 +15,7 @@ export default function HomePage() {
         <ExhibitionList />
       </main>
 
-      <footer className="shadow-1/2 absolute bottom-0 h-20 w-full pt-px shadow-gray-f4">
+      <footer className="absolute bottom-0 h-20 w-full pt-px shadow-1/2 shadow-gray-f4">
         <nav className="contents">
           <ul className="flex h-full">
             <li className="h-full flex-grow p-3">

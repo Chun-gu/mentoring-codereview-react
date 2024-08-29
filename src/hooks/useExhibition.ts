@@ -1,10 +1,11 @@
-import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { getExhibitions } from '@/apis/exhibition';
+import { getExhibition, getExhibitions } from '@/apis/exhibition';
 import { addWish, deleteWish, getWishes } from '@/apis/wish';
 
 const exhibitionQuerykey = {
   all: () => ['exhibitions'],
+  detail: (id: number) => [...exhibitionQuerykey.all(), id],
   wishes: () => ['wishes'],
 } as const;
 
@@ -15,6 +16,15 @@ export function useExhibition() {
   });
 
   return exhibitions;
+}
+
+export function useGetExhibitionQuery(id: number) {
+  const { data: exhibition } = useQuery({
+    queryKey: exhibitionQuerykey.detail(id),
+    queryFn: () => getExhibition(id),
+  });
+
+  return exhibition;
 }
 
 export function useGetWishesQuery() {

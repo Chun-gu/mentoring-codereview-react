@@ -9,3 +9,12 @@ export async function getExhibitions(): Promise<Array<Exhibition>> {
 
   return exhibitions;
 }
+
+export async function getExhibition(id: number): Promise<Exhibition> {
+  const response = await fetch(`/exhibitions/${id}`, { method: 'GET' });
+
+  if (!response.ok) throw new Error('GET /exhibitions/:id');
+  const exhibition = await response.json();
+
+  return exhibition;
+}

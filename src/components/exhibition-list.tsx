@@ -1,16 +1,17 @@
-import ExhibitionCard from '@/components/exhibition-card';
 import { useExhibition } from '@/hooks/useExhibition';
+
+import ExhibitionListEmpty from './exhibition-list-empty';
+import ExhibitionListItem from './exhibition-list-item';
 
 export default function ExhibitionList() {
   const exhibitions = useExhibition();
 
-  // TODO: handle when length === 0
-  return (
+  return exhibitions?.length === 0 ? (
+    <ExhibitionListEmpty />
+  ) : (
     <ul className="flex h-full flex-col gap-2 overflow-y-auto p-2">
       {exhibitions?.map((exhibition) => (
-        <li key={exhibition.id} className="contents">
-          <ExhibitionCard exhibition={exhibition} />
-        </li>
+        <ExhibitionListItem key={exhibition.id} exhibition={exhibition} />
       ))}
     </ul>
   );

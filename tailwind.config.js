@@ -52,6 +52,29 @@ module.exports = {
       boxShadow: {
         '1/2': '0px 0px 0px 0.5px inset',
       },
+      animation: {
+        'fade-in': 'fade-in 0.2s ease-out',
+        'fade-out': 'fade-out 0.2s ease-out',
+        'backdrop-fade-in': 'backdrop-fade-in 0.2s ease-out',
+      },
+      keyframes: {
+        'fade-in': {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        'fade-out': {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
+        'backdrop-fade-in': {
+          from: {
+            'background-color': 'rgb(0 0 0 / 0)',
+          },
+          to: {
+            'background-color': 'rgb(0 0 0 / 0.5)',
+          },
+        },
+      },
     },
   },
   plugins: [],

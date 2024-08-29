@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
-import { exhibitions as exhibitionsData } from '../db';
+import { exhibitions, exhibitions as exhibitionsData } from '../db';
 
 export const handlers = [
   http.get('/exhibitions', () => {
@@ -13,5 +13,17 @@ export const handlers = [
     });
 
     return HttpResponse.json(exhibitions);
+  }),
+
+  http.get('/exhibitions/:id', ({ params }) => {
+    let { id } = params;
+
+    const exhibitionId = Number(id);
+    const exhibition = exhibitions.find((exhibition) => exhibition.id === exhibitionId);
+
+    const wishes = JSON.parse(localStorage.getItem('wishes') || '[]');
+    const isWished = wishes.includes(exhibition?.id);
+
+    return HttpResponse.json({ ...exhibition, isWished });
   }),
 ];
